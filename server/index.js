@@ -17,7 +17,7 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors(
     {
-        origin:["https://socialchatapp.vercel.app"],
+        origin:["socialchatapp-fg54w6n7a-praveshini-b-n-vs-projects.vercel.app"],
         methods:["POST","GET"],
         credentials:true
     }
