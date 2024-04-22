@@ -15,7 +15,18 @@ app.use('/images', express.static('images'));
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
-app.use(cors());
+const corsOptions = {
+  origin: [
+    "https://socialchatapp.vercel.app",
+    "https://socialchatapp-c87ag7uil-praveshini-b-n-vs-projects.vercel.app",
+    // Add more allowed domains here
+  ],
+  methods: ["POST", "GET"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 mongoose.set('strictQuery', false); 
 dotenv.config();
 mongoose.connect(
