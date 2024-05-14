@@ -13,7 +13,6 @@ import MessageRoute from './Routes/MessageRoute.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // Static file serving
 app.use(express.static('public'));
@@ -47,12 +46,8 @@ mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on port: ${PORT}`);
-  });
 }).catch(error => {
   console.error("Error connecting to MongoDB:", error.message);
 });
 
-export default app; // Export the app for serverless function handling
+export default app;
